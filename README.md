@@ -1,4 +1,4 @@
-### 用于解析query的库
+### a lib to parser sql-string
 
 ### Reference
 
