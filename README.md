@@ -191,7 +191,7 @@ console.log(params);
 ```
 
 
-### Method
+### Attributes
 
 - query
 - sort
@@ -278,7 +278,7 @@ npm install
 npm run build
 ```
 
-### test
+### Test
 
 ```bash
 npm run test
