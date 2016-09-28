@@ -1,4 +1,6 @@
-### a lib to parser sql-string &nbsp;&nbsp; [![Build Status](https://travis-ci.org/axetroy/sql-kit.svg?branch=master)](https://travis-ci.org/axetroy/sql-kit)
+# sql-kit [![Build Status](https://travis-ci.org/axetroy/sql-kit.svg?branch=master)](https://travis-ci.org/axetroy/sql-kit)
+
+a lib to parser sql-string
 
 ### Reference
 
