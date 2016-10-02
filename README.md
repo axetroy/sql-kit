@@ -1,4 +1,4 @@
-# sql-kit [![Build Status](https://travis-ci.org/axetroy/sql-kit.svg?branch=master)](https://travis-ci.org/axetroy/sql-kit)
+# sql-kit [![Build Status](https://travis-ci.org/axetroy/sql-kit.svg?branch=master)](https://travis-ci.org/axetroy/sql-kit)[![Coverage Status](https://coveralls.io/repos/github/axetroy/sql-kit/badge.svg?branch=master)](https://coveralls.io/github/axetroy/sql-kit?branch=master)
 
 a lib to parser sql-string
 
