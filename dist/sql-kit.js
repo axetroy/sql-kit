@@ -4,9 +4,9 @@
 	else if(typeof define === 'function' && define.amd)
 		define([], factory);
 	else if(typeof exports === 'object')
-		exports["sql-query"] = factory();
+		exports["sqlKit"] = factory();
 	else
-		root["sql-query"] = factory();
+		root["sqlKit"] = factory();
 })(this, function() {
 return /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
@@ -54,24 +54,17 @@ return /******/ (function(modules) { // webpackBootstrap
 /* 0 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__(1);
-
-
-/***/ },
-/* 1 */
-/***/ function(module, exports, __webpack_require__) {
-
 	'use strict';
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-	var queryParser = __webpack_require__(2);
-	var metaParser = __webpack_require__(3);
+	var queryParser = __webpack_require__(1);
+	var metaParser = __webpack_require__(2);
 	var sortParser = __webpack_require__(4);
 
-	var _require = __webpack_require__(5);
+	var _require = __webpack_require__(3);
 
 	var DEFAULT_QUERY = _require.DEFAULT_QUERY;
 	var DEFAULT_SORT = _require.DEFAULT_SORT;
@@ -103,7 +96,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var SqlKit = function () {
 	  function SqlKit() {
-	    var _ref = arguments.length <= 0 || arguments[0] === undefined ? DEFAULT_ENTITY : arguments[0];
+	    var _ref = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : DEFAULT_ENTITY;
 
 	    var _ref$query = _ref.query;
 	    var query = _ref$query === undefined ? DEFAULT_QUERY : _ref$query;
@@ -307,7 +300,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  angular.module('sql-query', ['ui.router']).provider('sqlKit', function () {
 	    this.$get = ['$state', function ($state) {
 	      return function () {
-	        var _ref2 = arguments.length <= 0 || arguments[0] === undefined ? { query: {}, sort: [], meta: {} } : arguments[0];
+	        var _ref2 = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : { query: {}, sort: [], meta: {} };
 
 	        var _ref2$query = _ref2.query;
 	        var query = _ref2$query === undefined ? {} : _ref2$query;
@@ -334,7 +327,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = SqlKit;
 
 /***/ },
-/* 2 */
+/* 1 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -344,7 +337,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	 */
 
 	function parser(operators) {
-	  var context = arguments.length <= 1 || arguments[1] === undefined ? {} : arguments[1];
+	  var context = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
 	  var attr = arguments[2];
 	  var value = arguments[3];
 
@@ -363,7 +356,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	}
 
 	function parse(operatorStr, value) {
-	  var context = arguments.length <= 2 || arguments[2] === undefined ? {} : arguments[2];
+	  var context = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
 
 	  var operators = operatorStr.match(/((?=\$)?[^\$]+(?=\$))/ig);
 	  var attr = operatorStr.match(/((?=\$)?\w+(?!=\$))$/i);
@@ -384,7 +377,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = queryParser;
 
 /***/ },
-/* 3 */
+/* 2 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -393,7 +386,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	 * Created by axetroy on 16-9-16.
 	 */
 
-	var _require = __webpack_require__(5);
+	var _require = __webpack_require__(3);
 
 	var DEFAULT_LIMIT = _require.DEFAULT_LIMIT;
 	var DEFAULT_PAGE = _require.DEFAULT_PAGE;
@@ -401,11 +394,11 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 	function metaParser() {
-	  var _ref = arguments.length <= 0 || arguments[0] === undefined ? {
+	  var _ref = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {
 	    limit: DEFAULT_LIMIT,
 	    page: DEFAULT_PAGE,
 	    skip: DEFAULT_SKIP
-	  } : arguments[0];
+	  };
 
 	  var _ref$limit = _ref.limit;
 	  var limit = _ref$limit === undefined ? DEFAULT_LIMIT : _ref$limit;
@@ -424,30 +417,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = metaParser;
 
 /***/ },
-/* 4 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	/**
-	 * Created by axetroy on 16-9-16.
-	 */
-
-	var _require = __webpack_require__(5);
-
-	var DEFAULT_SORT = _require.DEFAULT_SORT;
-
-
-	function sortParser() {
-	  var sort = arguments.length <= 0 || arguments[0] === undefined ? DEFAULT_SORT : arguments[0];
-
-	  return Array.isArray(sort) ? sort : [sort];
-	}
-
-	module.exports = sortParser;
-
-/***/ },
-/* 5 */
+/* 3 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -478,6 +448,29 @@ return /******/ (function(modules) { // webpackBootstrap
 	exports.DEFAULT_PAGE = DEFAULT_PAGE;
 	exports.DEFAULT_SKIP = DEFAULT_SKIP;
 	exports.DEFAULT_ENTITY = DEFAULT_ENTITY;
+
+/***/ },
+/* 4 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	/**
+	 * Created by axetroy on 16-9-16.
+	 */
+
+	var _require = __webpack_require__(3);
+
+	var DEFAULT_SORT = _require.DEFAULT_SORT;
+
+
+	function sortParser() {
+	  var sort = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : DEFAULT_SORT;
+
+	  return Array.isArray(sort) ? sort : [sort];
+	}
+
+	module.exports = sortParser;
 
 /***/ }
 /******/ ])

@@ -2,10 +2,11 @@
   "name": "sql-query",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "./dist/sql-kit.min.js",
   "scripts": {
     "test": "mocha --compilers js:babel-core/register",
-    "build": "webpack --display-error-details --progress --colors --watch",
+    "build": "webpack --display-error-details --progress --colors",
+    "watch": "webpack --display-error-details --progress --colors --watch",
     "coverage": "istanbul cover ./**/*.js"
   },
   "author": "",

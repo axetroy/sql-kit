@@ -3,17 +3,19 @@
  */
 
 var webpack = require('webpack');
+var UnminifiedWebpackPlugin = require('unminified-webpack-plugin');
 var path = require('path');
 
 // webpack.config.js
 module.exports = {
-  entry: [
-    path.join(__dirname, 'index.js')
-  ],
+  entry: {
+    "sql-kit": path.join(__dirname, 'index.js'),
+    "sql-kit.min": path.join(__dirname, 'index.js')
+  },
   output: {
     path: path.join(__dirname, '/dist'),
-    filename: 'sql-query.js',
-    library: 'sql-query',
+    filename: '[name].js',
+    library: 'sqlKit',
     libraryTarget: 'umd'
   },
   resolve: {
@@ -32,5 +34,12 @@ module.exports = {
       }
     ]
   },
-  plugins: []
+  plugins: [
+    new webpack.optimize.UglifyJsPlugin({
+      compress: {
+        warnings: false
+      },
+      test: /\.min\.js$/
+    })
+  ]
 };
