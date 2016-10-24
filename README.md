@@ -16,10 +16,12 @@ a lib to parser sql-string
 
 ### Build
 
-```bash
-npm install
+maybe you need install ``yarn`` before you build
 
-npm run build
+```bash
+yarn
+
+yarn run build
 ```
 
 ### Test
