@@ -6,6 +6,11 @@ node_js:
 cache:
   directories
     - ./node_modules
+    
+addons:
+  sauce_connect:
+    username: "axetroy"
+    access_key: "368f16b0-cf4e-46a4-8a19-9b1576581bb4"
 
 before_script:
   - npm install
