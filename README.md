@@ -1,5 +1,7 @@
 # sql-kit [![Build Status](https://travis-ci.org/axetroy/sql-kit.svg?branch=master)](https://travis-ci.org/axetroy/sql-kit)[![Build Status](https://saucelabs.com/buildstatus/axetroy)](https://saucelabs.com/beta/builds/4af62bf045114aa390a8e21a9771dae8)[![Coverage Status](https://coveralls.io/repos/github/axetroy/sql-kit/badge.svg?branch=master)](https://coveralls.io/github/axetroy/sql-kit?branch=master)[![Coverage Status](https://david-dm.org/axetroy/sql-kit.svg)](https://david-dm.org/axetroy/sql-kit)
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/axetroy/sql-kit.svg)](https://greenkeeper.io/)
+
 a lib to parser sql-string
 
 ### Reference
