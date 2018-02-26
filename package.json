@@ -19,7 +19,7 @@
     "coveralls": "^3.0.0",
     "istanbul": "^0.4.5",
     "mocha": "^3.0.2",
-    "webpack": "^3.0.0"
+    "webpack": "^4.0.1"
   },
   "dependencies": {
   }
